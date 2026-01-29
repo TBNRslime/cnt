@@ -1,3 +1,21 @@
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
+    sprites.destroy(mySprite)
+    game.splash("SERIOUSLY!")
+    game.splash("You got to", "be kidding me")
+    game.splash("Are you THAT cat?")
+    game.splash("You know what?")
+    game.splash("FINE!")
+    game.splash("YOU ASKED!")
+    game.splash("Wait")
+    game.splash("it wont work")
+    game.splash("lucky!")
+    game.splash("URAAAAAAAGH!")
+    game.splash("just... go")
+    game.splash(":(")
+    timer.after(5000, function () {
+        game.reset()
+    })
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
@@ -52,7 +70,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (spri
     info.stopCountdown()
     game.setGameOverMessage(true, "YOU GOT GAMES ON YOUR PHONE?")
     game.setGameOverEffect(true, effects.splatter)
-    game.gameOver(true)
     scene.setBackgroundColor(15)
     game.splash("CLEARED IN " + "" + info.getTimeElapsed() + "s")
     scene.setBackgroundImage(img`
