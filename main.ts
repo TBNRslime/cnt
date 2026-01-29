@@ -44,12 +44,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, fu
     pause(1000)
     game.reset()
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
-    info.stopCountdown()
-    game.setGameOverMessage(true, "YOU GOT GAMES ON YOUR PHONE?")
-    game.setGameOverEffect(true, effects.splatter)
-    game.gameOver(true)
-})
 sprites.onDestroyed(SpriteKind.Player, function (sprite) {
     scene.setBackgroundColor(15)
     game.splash("CLEARED IN " + "" + info.getTimeElapsed() + "s")
@@ -182,6 +176,12 @@ sprites.onDestroyed(SpriteKind.Player, function (sprite) {
     leaderboard.enableRanks(true)
     leaderboard.showScores()
     leaderboard.saveScores()
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
+    info.stopCountdown()
+    game.setGameOverMessage(true, "YOU GOT GAMES ON YOUR PHONE?")
+    game.setGameOverEffect(true, effects.splatter)
+    game.gameOver(true)
 })
 let mySprite: Sprite = null
 game.splash("MADE BY TBNRSLIME GAMING")
