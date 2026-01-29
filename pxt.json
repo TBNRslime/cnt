@@ -6,7 +6,9 @@
         "Makey Makey Keymappings": "github:joylabz/makeymakey-makecode-arcade-extension#1.0.3",
         "multiplayer": "*",
         "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1",
-        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0"
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "leaderboard-extension": "github:aidantilanus/leaderboard-extension#master",
+        "pxt-countup": "github:shakao/pxt-countup#v0.0.2"
     },
     "files": [
         "main.blocks",
