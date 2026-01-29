@@ -2,11 +2,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
     info.startCountdown(11)
+    info.startCountup()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level3`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
     info.startCountdown(11)
+    info.startCountup()
 })
 info.onCountdownEnd(function () {
     sprites.destroy(mySprite, effects.spray, 1000)
@@ -29,11 +31,13 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sp
     tiles.setCurrentTilemap(tilemap`level3`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
     info.startCountdown(11)
+    info.startCountup()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardSpike, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level1`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
     info.startCountdown(20)
+    info.startCountup()
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, function (sprite, location) {
     info.stopCountdown()
@@ -44,7 +48,11 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, fu
     pause(1000)
     game.reset()
 })
-sprites.onDestroyed(SpriteKind.Player, function (sprite) {
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
+    info.stopCountdown()
+    game.setGameOverMessage(true, "YOU GOT GAMES ON YOUR PHONE?")
+    game.setGameOverEffect(true, effects.splatter)
+    game.gameOver(true)
     scene.setBackgroundColor(15)
     game.splash("CLEARED IN " + "" + info.getTimeElapsed() + "s")
     scene.setBackgroundImage(img`
@@ -176,12 +184,6 @@ sprites.onDestroyed(SpriteKind.Player, function (sprite) {
     leaderboard.enableRanks(true)
     leaderboard.showScores()
     leaderboard.saveScores()
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
-    info.stopCountdown()
-    game.setGameOverMessage(true, "YOU GOT GAMES ON YOUR PHONE?")
-    game.setGameOverEffect(true, effects.splatter)
-    game.gameOver(true)
 })
 let mySprite: Sprite = null
 game.splash("MADE BY TBNRSLIME GAMING")
