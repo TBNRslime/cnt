@@ -20,13 +20,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
     info.startCountdown(11)
-    info.startCountup()
+    info.startCountup(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level3`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
     info.startCountdown(11)
-    info.startCountup()
+    info.startCountup(false)
 })
 info.onCountdownEnd(function () {
     sprites.destroy(mySprite, effects.spray, 1000)
@@ -49,13 +49,19 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sp
     tiles.setCurrentTilemap(tilemap`level3`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
     info.startCountdown(11)
-    info.startCountup()
+    info.startCountup(false)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level1`)
+    tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
+    info.startCountdown(11)
+    info.startCountup(false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardSpike, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level1`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
-    info.startCountdown(20)
-    info.startCountup()
+    info.startCountdown(11)
+    info.startCountup(false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, function (sprite, location) {
     info.stopCountdown()
@@ -70,7 +76,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (spri
     info.stopCountdown()
     game.setGameOverMessage(true, "YOU GOT GAMES ON YOUR PHONE?")
     game.setGameOverEffect(true, effects.splatter)
-    scene.setBackgroundColor(15)
     game.splash("CLEARED IN " + "" + info.getTimeElapsed() + "s")
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -194,7 +199,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (spri
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
-    leaderboard.setLeaderboardColor(15)
+    leaderboard.setLeaderboardColor(1)
     leaderboard.setScoreType(ScoreTypes.HighestScore)
     leaderboard.addScore(game.askForString(""), info.getTimeElapsed())
     game.splash(leaderboard.getAllScores())
