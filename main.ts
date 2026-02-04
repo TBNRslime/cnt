@@ -12,6 +12,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
     game.splash("URAAAAAAAGH!")
     game.splash("just... go")
     game.splash(":(")
+    game.splash("SPACE/A")
     timer.after(5000, function () {
         game.reset()
     })
@@ -199,13 +200,16 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (spri
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
-    leaderboard.setLeaderboardColor(1)
+    leaderboard.setLeaderboardColor(2)
     leaderboard.setScoreType(ScoreTypes.HighestScore)
     leaderboard.addScore(game.askForString(""), info.getTimeElapsed())
     game.splash(leaderboard.getAllScores())
     leaderboard.enableRanks(true)
     leaderboard.showScores()
     leaderboard.saveScores()
+    timer.after(5000, function () {
+        game.reset()
+    })
 })
 let mySprite: Sprite = null
 game.splash("MADE BY TBNRSLIME GAMING")
