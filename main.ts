@@ -73,6 +73,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, fu
     pause(1000)
     game.reset()
 })
+// LEADERBOARD
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
     info.stopCountdown()
     game.setGameOverMessage(true, "YOU GOT GAMES ON YOUR PHONE?")
